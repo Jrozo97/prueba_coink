@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="container-sidebar">
+    <h1 class="sidebar-title">
+      ¡Bienvenidos a la
+      <br />
+      herramienta de
+      <br />
+      registro coink!
+    </h1>
+    <img
+      class="sidebar-image-principal"
+      src="../../../assets/images/Image 5.png"
+      alt="Image register"
+    />
+    <h2 class="sidebar-description">
+      Coink para tu día a día.
+      <br />
+      Empieza ahorrando y
+      <br />
+      cumple tus sueños con
+      <br />
+      propósito.
+    </h2>
+    <img
+      class="sidebar-image-secondary"
+      src="../../../assets/images/Image 6.png"
+      alt="image save money"
+    />
+  </div>
+
+  <div class="container-login">
+    <h3 class="title-register" *ngIf="hide == false">
+      ¿Aun no tienes cuenta? &nbsp;
+      <strong class="text-register" (click)="showData()">
+        Regístrate ahora
+      </strong>
+    </h3>
+    <h3 class="title-register" *ngIf="hide == true">
+      ¿Ya tienes una cuenta? &nbsp;
+      <strong class="text-register"  (click)="hideData()">
+        Inicia sesión ahora
+      </strong>
+    </h3>
+    <div class="form-login" *ngIf="hide == false">
+      <h1 class="title-form">Iniciar sesión en Coink</h1>
+      <form class="form-login">
+        <h3 class="subtitle-form">Correo electronico</h3>
+        <input
+          class="input"
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+        />
+        <h3 class="subtitle-form">Contraseña</h3>
+        <input
+          class="input"
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <button class="btn-login">Iniciar sesión</button>
+        <h2 class="recovery-password">¿Olvidaste tu contraseña?</h2>
+      </form>
+    </div>
+
+    <div class="form-login" *ngIf="hide == true">
+      <h1 class="title-form">Registrate en Coink</h1>
+      <form class="form-login">
+        <h3 class="subtitle-form">Nombre de usuario</h3>
+        <input
+          class="input"
+          type="text"
+          placeholder="Usuario"
+          formControlName="usuario"
+        />
+        <h3 class="subtitle-form">Correo electronico</h3>
+        <input
+          class="input"
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+        />
+        <h3 class="subtitle-form">Contraseña</h3>
+        <input
+          class="input"
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <button class="btn-login">Registar cuenta</button>
+      </form>
+    </div>
+  </div>
+</div>
