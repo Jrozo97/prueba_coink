@@ -1,4 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.css';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
 * {
   font-family: "Poppins", sans-serif;
   margin: 0px;
@@ -10,3 +12,6 @@ body {
   height: 100vh;
   background-color: #F2F2F2;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

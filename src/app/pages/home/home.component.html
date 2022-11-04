@@ -10,22 +10,90 @@
     <em class="fa-solid fa-circle-user icon-bar"></em>
   </div>
 </header>
-<div class="container">
+<div class="home-container">
   <div class="container-sidebar">
     <div class="sidebar-profile">
       <div class="profile"></div>
       <div class="profile-title-user">
         <em class="fa-solid fa-lock"></em>
         &nbsp;
-        <h2>Jeff</h2>
+        <h2 class="title-profile">Jeff</h2>
       </div>
     </div>
     <ul class="sidebar-information">
-        <li class="information-tag">Tarjeta visa en dispensadores</li>
-        <li class="information-tag">Crear dispensador</li>
-        <li class="information-tag">Monitorear y editar dispensadores</li>
-        <li class="information-tag">Solicitud tarjetas</li>
+      <li class="information-tag">Tarjeta visa en dispensadores</li>
+      <li class="information-tag">Crear dispensador</li>
+      <li class="information-tag">Monitorear y editar dispensadores</li>
+      <li class="information-tag">Solicitud tarjetas</li>
     </ul>
   </div>
-  <div class="container-principal"></div>
+  <div class="container-principal">
+    <h3 class="principal-subtitle">
+      Tarjetas visa dispensadores /<span class="subtitle">
+        Solicitud tarjetas</span
+      >
+    </h3>
+    <h1 class="principal-title">SOLICITUD TARJETAS</h1>
+    <div class="principal-text-search">
+      <em class="fa-solid fa-magnifying-glass icon-search"></em>
+      <h3 class="text-search">Buscar</h3>
+    </div>
+    <div class="principal-search">
+      <form class="principal-search">
+        <div class="search-row">
+          <div class="row-left">
+            <h3 class="form-title">Usuario</h3>
+            <input
+              placeholder="Usuario"
+              class="form-input"
+              type="text"
+              #txtSearch
+              (keyup)="onSearchCharacters(txtSearch.value)"
+            />
+          </div>
+          <div class="row-right">
+            <h3 class="form-title">Fechas</h3>
+            <input
+              placeholder="dia/mes/año - dia/mes/año"
+              class="form-input"
+              type="text"
+            />
+          </div>
+        </div>
+
+        <div class="principal-buttons-filter">
+          <button class="btn-filter">Limpiar filtros</button>
+          <button class="btn-search">Buscar</button>
+        </div>
+      </form>
+    </div>
+    <div class="principal-table">
+      <button class="btn-request">Solicitar tarjeta</button>
+      <div class="table">
+        <table class="table-container">
+          <thead class="header-table">
+            <tr>
+              <th class="header-title">Nombre</th>
+              <th class="header-title">Estado</th>
+              <th class="header-title">Especie</th>
+              <th class="header-title">Tipo</th>
+            </tr>
+          </thead>
+          <tbody class="body-container">
+            <tr *ngFor="let character of characters | filtro:page:search">
+              <td class="body-text">{{ character.name }}</td>
+              <td class="body-text">{{ character.status }}</td>
+              <td class="body-text">{{ character.species }}</td>
+              <td class="body-text">
+                {{ character.type != "" ? character.type : "No aplica" }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="prevPage()" >Anteriores</button>
+    &nbsp;
+    <button class="btn btn-primary" (click)="nextPage()" [disabled]="(characters | filtro:page:search).length === 0">Siguientes</button>
+  </div>
 </div>
