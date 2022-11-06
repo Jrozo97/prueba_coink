@@ -1,9 +1,8 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InfoCharacterService } from 'src/app/services/info-character.service';
 import { InfoCharacter } from '../../interface/info-characters-interface';
+
 
 @Component({
   selector: 'app-home',
@@ -14,7 +13,8 @@ export class HomeComponent implements OnInit {
   public characters: InfoCharacter[] = [];
   empty: string = 'No aplica';
   public page: number = 0;
-  public search: string = "";
+  public search: string = '';
+  public hide: boolean = false;
 
   constructor(
     private route: Router,
@@ -33,15 +33,21 @@ export class HomeComponent implements OnInit {
   }
 
   nextPage() {
-    this.page +=5;
+    this.page += 7;
   }
 
   prevPage() {
-    if( this.page > 0)
-      this.page -=5;
+    if (this.page > 0) this.page -= 7;
   }
-  onSearchCharacters( search: string ){
+  onSearchCharacters(search: string) {
     this.page = 0;
     this.search = search;
+  }
+
+  showData() {
+    return (this.hide = true);
+  }
+  hideData() {
+    return (this.hide = false);
   }
 }

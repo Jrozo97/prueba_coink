@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
+interface RegisterForm {
+  name: string;
+  email: string;
+  password: string;
+}
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,6 +15,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   hide = false;
+
+  public register: RegisterForm = {
+    name: '',
+    email: '',
+    password: ''
+  };
 
   constructor(
     private route: Router

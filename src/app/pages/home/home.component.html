@@ -5,13 +5,14 @@
     alt="logo coink"
   />
   <div class="header-options">
-    <em class="fa-solid fa-bars icon-bar"></em>
+    <em class="fa-solid fa-bars icon-bar" *ngIf="hide == false" (click)="showData()" ></em>
+    <em class="fa-solid fa-xmark icon-bar" *ngIf="hide == true" (click)="hideData()"></em>
     <h1 class="title-header">BACKOFFICE</h1>
     <em class="fa-solid fa-circle-user icon-bar"></em>
   </div>
 </header>
 <div class="home-container">
-  <div class="container-sidebar">
+  <div class="container-sidebar" *ngIf="hide == true">
     <div class="sidebar-profile">
       <div class="profile"></div>
       <div class="profile-title-user">
@@ -80,7 +81,10 @@
             </tr>
           </thead>
           <tbody class="body-container">
-            <tr *ngFor="let character of characters | filtro:page:search">
+            <tr
+              class="container-list"
+              *ngFor="let character of characters | filtro: page:search"
+            >
               <td class="body-text">{{ character.name }}</td>
               <td class="body-text">{{ character.status }}</td>
               <td class="body-text">{{ character.species }}</td>
@@ -92,8 +96,19 @@
         </table>
       </div>
     </div>
-    <button class="btn btn-primary" (click)="prevPage()" >Anteriores</button>
+    <div class="paginator">
+
+      <button class="btn btn-primary" (click)="prevPage()">Anteriores</button>
     &nbsp;
-    <button class="btn btn-primary" (click)="nextPage()" [disabled]="(characters | filtro:page:search).length === 0">Siguientes</button>
+    <button
+      class="btn btn-primary"
+      (click)="nextPage()"
+      [disabled]="(characters | filtro: page:search).length === 0"
+    >
+      Siguientes
+    </button>
+    <h2>Mostrando {{page}}</h2>
+    </div>
+    
   </div>
 </div>

@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FiltroPipe } from './pipes/filtro.pipe';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 
 
@@ -34,6 +35,7 @@ import { FiltroPipe } from './pipes/filtro.pipe';
     NgbModule,
     HttpClientModule,
     MatPaginatorModule,
+    HotToastModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

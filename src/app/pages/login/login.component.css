@@ -10,7 +10,7 @@
   width: 59.236vw;
 }
 
-.container {
+.container-page-login {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -120,7 +120,7 @@
   background-color: #001b24;
 }
 
-.container,
+.container-sidebar,
 .title-register,
 .container-login,
 .sidebar-description,
@@ -135,7 +135,7 @@
 }
 
 @media (max-width: 800px) {
-  .container,
+  .container-sidebar,
   .title-register,
   .container-login,
   .sidebar-description,

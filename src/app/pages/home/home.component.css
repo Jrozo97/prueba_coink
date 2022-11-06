@@ -8,7 +8,7 @@
 }
 
 .logo {
-  width: 10vw;
+  width: 9rem;
   margin-right: 8.542vw;
 }
 
@@ -21,12 +21,13 @@
 }
 
 .icon-bar {
-  font-size: 2.778vw;
+  font-size: 2.5rem;
   color: #fdfdfd;
+  cursor: pointer;
 }
 
 .title-header {
-  font-size: 1.528vw;
+  font-size: 2rem;
   color: #fdfdfd;
   margin: 0;
 }
@@ -77,9 +78,10 @@
 
 .information-tag {
   list-style: none;
-  font-size: 1.458vw;
+  font-size: 1.313rem;
   padding: 1.9210vh 0vw 1.9210vh 3.750vw;
   color: #004b40;
+  cursor: pointer;
 }
 
 .information-tag:hover {
@@ -90,12 +92,12 @@
 .container-principal {
   padding: 6.8303vh 5.208vw 10.2454vh 5.208vw;
   display: flex;
-  width: 77%;
+  width: 100%;
   flex-direction: column;
 }
 
 .principal-subtitle {
-  font-size: 1.389vw;
+  font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 48px;
 }
@@ -105,14 +107,14 @@
 }
 
 .principal-title {
-  font-size: 2.639vw;
+  font-size: 2.375rem;
   font-weight: 600;
   color: #004b40;
   margin-bottom: 1.7075vh;
 }
 
 .text-search {
-  font-size: 1.528vw;
+  font-size: 1.375rem;
   font-weight: 500;
   margin: 0;
 }
@@ -148,7 +150,7 @@
 }
 
 .form-title {
-  font-size: 1.528vw;
+  font-size: 1.375rem;
   font-weight: 500;
 }
 
@@ -158,7 +160,7 @@
   padding-left: 8px;
   border: none;
   border-bottom: 1px solid #707070;
-  font-size: 1.250vw;
+  font-size: 1.125rem;
   margin-bottom: 5.1227vh;
   background-color: transparent;
 }
@@ -173,11 +175,12 @@
 .btn-request {
   width: 16.111vw;
   height: 5.9765vh;
-  font-size: 1.667vw;
   font-weight: 500;
   border-radius: 5px;
   cursor: pointer;
   border: none;
+  font-size: 1.438rem;
+  
 }
 
 .btn-filter,
@@ -223,11 +226,36 @@
   height: 60px;
   background-color: #004b40;
   color: #fdfdfd;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 600;
 }
 
 .header-title, .body-text{
   text-align: center;
   vertical-align: middle;
+  width: 1.375rem;
+}
+
+.container-list{
+  height: 98px;
+}
+
+.paginator{
+  margin-top: 24px;
+}
+
+@media (max-width: 900px) {
+  .search-row{
+    width: 100%;
+    justify-content: center;
+  }
+  .row-left, .row-right{
+    width: 100%;
+  }
+  .form-input{
+    width: auto;
+  }
+  .btn-search, .btn-filter, .btn-request{
+    width: 100%;
+  }
 }
