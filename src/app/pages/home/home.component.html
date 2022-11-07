@@ -46,7 +46,7 @@
             <h3 class="form-title">Usuario</h3>
             <input
               placeholder="Usuario"
-              class="form-input"
+              class="form-input-search"
               type="text"
               #txtSearch
               (keyup)="onSearchCharacters(txtSearch.value)"
@@ -56,8 +56,9 @@
             <h3 class="form-title">Fechas</h3>
             <input
               placeholder="dia/mes/año - dia/mes/año"
-              class="form-input"
+              class="form-input-search"
               type="text"
+              disabled
             />
           </div>
         </div>
@@ -83,7 +84,7 @@
           <tbody class="body-container">
             <tr
               class="container-list"
-              *ngFor="let character of characters | filtro: page:search"
+              *ngFor="let character of characters | filtro: page:searchTerm"
             >
               <td class="body-text">{{ character.name }}</td>
               <td class="body-text">{{ character.status }}</td>
@@ -103,11 +104,10 @@
     <button
       class="btn btn-primary"
       (click)="nextPage()"
-      [disabled]="(characters | filtro: page:search).length === 0"
+      [disabled]="(characters | filtro: page:searchTerm).length === 0"
     >
       Siguientes
     </button>
-    <h2>Mostrando {{page}}</h2>
     </div>
     
   </div>

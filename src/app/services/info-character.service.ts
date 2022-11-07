@@ -20,4 +20,8 @@ export class InfoCharacterService {
     return this.http.get(this.API_SERVER + `?name=${search}`) 
    }
 
+   public nextInfoCharacter ( page: number):Observable <any> {
+    return this.http.get(this.API_SERVER + `?page=${page}`)
+   }
+
 }

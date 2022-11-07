@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   public characters: InfoCharacter[] = [];
   empty: string = 'No aplica';
   public page: number = 0;
-  public search: string = '';
+  public searchTerm: string = '';
   public hide: boolean = false;
 
   constructor(
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._infoCharacter.cargarInfo(this.search).subscribe(
+    this._infoCharacter.cargarInfo(this.searchTerm).subscribe(
       (response) => {
         this.characters = response.results;
       },
@@ -41,7 +41,8 @@ export class HomeComponent implements OnInit {
   }
   onSearchCharacters(search: string) {
     this.page = 0;
-    this.search = search;
+    this.searchTerm = search;
+    console.log(search);
   }
 
   showData() {

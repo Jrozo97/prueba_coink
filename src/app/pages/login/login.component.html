@@ -37,13 +37,13 @@
     </h3>
     <h3 class="title-register" *ngIf="hide == true">
       ¿Ya tienes una cuenta? &nbsp;
-      <strong class="text-register"  (click)="hideData()">
+      <strong class="text-register" (click)="hideData()">
         Inicia sesión ahora
       </strong>
     </h3>
     <div class="form-login" *ngIf="hide == false">
       <h1 class="title-form">Iniciar sesión en Coink</h1>
-      <form class="form-login">
+      <form class="form-login" [formGroup]="formLogin" (ngSubmit)="loginUser()" (ngSubmit)="inputErrorMessage()">
         <h3 class="subtitle-form">Correo electronico</h3>
         <input
           class="input"
@@ -58,20 +58,31 @@
           placeholder="Password"
           formControlName="password"
         />
-        <button class="btn-login" routerLink="home">Iniciar sesión</button>
+        <button
+          class="btn-login"
+          routerLink="home"
+          [disabled]="this.formLogin.invalid"
+          type="submit"
+        >
+          Iniciar sesión
+        </button>
         <h2 class="recovery-password">¿Olvidaste tu contraseña?</h2>
       </form>
     </div>
 
     <div class="form-login" *ngIf="hide == true">
       <h1 class="title-form">Registrate en Coink</h1>
-      <form class="form-login">
+      <form
+        class="form-login"
+        [formGroup]="formRegister"
+        (ngSubmit)="registerUser()"
+      >
         <h3 class="subtitle-form">Nombre de usuario</h3>
         <input
           class="input"
           type="text"
-          placeholder="Usuario"
-          formControlName="usuario"
+          placeholder="Nombre"
+          formControlName="name"
         />
         <h3 class="subtitle-form">Correo electronico</h3>
         <input
@@ -87,7 +98,14 @@
           placeholder="Password"
           formControlName="password"
         />
-        <button class="btn-login" routerLink="home">Registar cuenta</button>
+        <button
+          class="btn-login"
+          routerLink="home"
+          [disabled]="this.formRegister.invalid"
+          type="submit"
+        >
+          Registar cuenta
+        </button>
       </form>
     </div>
   </div>
