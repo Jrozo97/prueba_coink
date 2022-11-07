@@ -3,28 +3,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 
-interface RegisterForm {
-  name: string;
-  email: string;
-  password: string;
-}
-
-interface loginForm {
-  email: string;
-  password: string;
-}
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  hide = false;
+  public hide: boolean = false;
 
   formRegister: FormGroup;
   formLogin: FormGroup;
-
 
   register: any = {
     name: '',
@@ -36,7 +24,11 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
-  constructor(private route: Router, private fb: FormBuilder, private toast: HotToastService) {
+  constructor(
+    private route: Router,
+    private fb: FormBuilder,
+    private toast: HotToastService
+  ) {
     this.formRegister = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.email, Validators.required]],
@@ -46,8 +38,7 @@ export class LoginComponent implements OnInit {
     this.formLogin = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.minLength(6), Validators.required]],
-    })
-
+    });
   }
 
   ngOnInit(): void {}
@@ -77,16 +68,16 @@ export class LoginComponent implements OnInit {
       password: this.formLogin.get('password')?.value,
     };
     this.login.push(loginForm);
-    
+
     this.formLogin.reset();
   }
 
-  inputErrorMessage(){
+  inputErrorMessage() {
     console.log(this.formLogin.status);
-    if(this.formLogin.valid){
-      console.log(this.formLogin.value)
-    }else{
-      this.toast.error('El email y/o contraseña no son correctas')
+    if (this.formLogin.valid) {
+      console.log(this.formLogin.value);
+    } else {
+      this.toast.error('El email y/o contraseña no son correctas');
     }
   }
 }
